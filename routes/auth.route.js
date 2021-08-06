@@ -72,4 +72,63 @@ router.post('/register', [
   }
 );
 
+router.post('/login', [
+    // check('email', 'PLEASE INSERT A VALID EMAIL!').isEmail(),
+    // check('password', 'PASSWORD IS REQUIRED!').exists()
+], async (req, res) => {
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) {
+        return res.status(400).json({
+            errors: errors.array()
+        })
+    }
+
+    const {email, password} = req.body;
+
+    try {
+        let user = await User.findOne({
+            email
+        });
+
+        if (!user) {
+            return res.status(400).json({
+                errors: [{
+                    msg: 'USER NOT FOUND!'
+                }]
+            })
+        }
+
+        const isMatch = await brcypt.compare(password, user.password);
+
+        if (!isMatch) {
+            return res.status(400).json({
+                errors: [{
+                    msg: 'USER NOT FOUND!'
+                }]
+            })
+        }
+
+        const payload = {
+            user: {
+                id: user.id
+            }
+        }
+
+        jwt.sign(
+            payload,
+            process.env.JWT_SECRET, {
+                expiresIn: 3600
+            }, (err, token) => {
+                if (err) throw err;
+                res.json({
+                    token
+                })
+            }
+        )
+    } catch (error) {
+        console.log(err.message)
+        res.status(500).send('SERVER ERROR!')
+    }
+})
+
 module.exports = router
