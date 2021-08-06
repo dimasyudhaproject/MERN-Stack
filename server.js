@@ -7,6 +7,8 @@ require('dotenv').config({
     path: './config/index.env'
 });
 
+//const connectDB = require('./config/db');
+//connectDB()
 app.use(express.urlencoded({extended: true}));
 app.use(morgan('dev'))
 app.use(cors())
