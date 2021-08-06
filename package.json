@@ -1,33 +1,34 @@
 {
-  "name": "init",
+  "name": "ecommerce",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dimasyudhaproject/dimasyudhaproject.github.io.git"
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "cd client && npm run start",
+    "server-install": "npm install",
+    "client-install": "cd client && npm install",
+    "install-all": "concurrently \"npm run server-install\" \"npm run client-install\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dimasyudhaproject/dimasyudhaproject.github.io/issues"
-  },
-  "homepage": "https://github.com/dimasyudhaproject/dimasyudhaproject.github.io#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
+    "bcrypt": "^5.0.0",
+    "cloudinary": "^1.23.0",
+    "concurrently": "^5.3.0",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-validator": "^6.12.1",
-    "gravatar": "^1.8.1",
+    "express-fileupload": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
-    "mongodb": "^4.1.0",
-    "mongoose": "^5.13.5",
-    "morgan": "^1.10.0"
+    "mongoose": "^5.10.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
