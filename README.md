@@ -46,6 +46,29 @@ npm run start
 npm run dev
 ```
 
+## Tools
+⭐️ Front-end
+* React JS
+* Redux (Manage app state)
+* React-router (To handle routing)
+* Axios (For http requests)
+* React Bootstrap
+* React-toastify (To handle success and error messages)
+* Formik (To handle forms state and validation)
+* Yup (To handle client side form validation)
+* Sass
+
+⭐️ Back-end
+* Express
+* Mongoose
+* Json Web Token (For authentication)
+* Bcryptjs (For data encryption)
+
+⭐️ Others
+* MonggoDB Atlas (For database)
+* Heroku (Deploy the soruce to be a live demo website)
+* GitHub (Source control)
+
 ## Author
 
 👤 **Dimas Yudha Pratama**
