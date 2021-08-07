@@ -78,7 +78,7 @@ function Cart() {
 
 
     if(cart.length === 0) 
-        return <h2 style={{textAlign: "center", fontSize: "5rem"}}>CART IS EMPTY</h2> 
+        return <h3 style={{textAlign: "center", fontSize: "3rem"}}>CART IS EMPTY</h3> 
 
     return (
         <div>

@@ -25,25 +25,26 @@ function DetailProduct() {
     return (
         <>
             <div className="detail">
-                <img src={detailProduct.images.url} alt="" />
+                <img src={detailProduct.images} alt="" />
                 <div className="box-detail">
-                    <div className="row">
-                        <h2>{detailProduct.title}</h2>
-                        <h6>#id: {detailProduct.product_id}</h6>
-                    </div>
-                    <span>$ {detailProduct.price}</span>
-                    <p>{detailProduct.description}</p>
+                <h4 style={{fontSize: "25px"}}>{detailProduct.title}</h4>
+                <div className="row">
+                    <h5 style={{fontSize: "14px"}}>Product ID: {detailProduct.product_id}</h5>
+                    <h5 style={{fontSize: "14px"}}>Price: ${detailProduct.price}</h5>
+                    <h5 style={{fontSize: "14px"}}>Already Sold: {detailProduct.sold}</h5>
+                    <h5 style={{fontSize: "14px"}}>Category: {detailProduct.category}</h5>
+                </div>
+                    <p style={{textAlign: "justify", fontSize: "15px"}}>{detailProduct.description}</p>
                     <p>{detailProduct.content}</p>
-                    <p>Sold: {detailProduct.sold}</p>
                     <Link to="/cart" className="cart"
                     onClick={() => addCart(detailProduct)}>
-                        Buy Now
+                        CHECKOUT
                     </Link>
                 </div>
             </div>
 
             <div>
-                <h2>Related products</h2>
+                <h2>RELATED PRODUCTS</h2>
                 <div className="products">
                     {
                         products.map(product => {

@@ -8,8 +8,7 @@ const initialState = {
     product_id: '',
     title: '',
     price: 0,
-    description: 'How to and tutorial videos of cool CSS effect, Web Design ideas,JavaScript libraries, Node.',
-    content: 'Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.',
+    description: '',
     category: '',
     _id: ''
 }
@@ -159,12 +158,6 @@ function CreateProduct() {
                     <label htmlFor="description">Description</label>
                     <textarea type="text" name="description" id="description" required
                     value={product.description} rows="5" onChange={handleChangeInput} />
-                </div>
-
-                <div className="row">
-                    <label htmlFor="content">Content</label>
-                    <textarea type="text" name="content" id="content" required
-                    value={product.content} rows="7" onChange={handleChangeInput} />
                 </div>
 
                 <div className="row">
