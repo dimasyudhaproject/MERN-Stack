@@ -31,7 +31,7 @@ function Filters() {
             </div>
 
             <input type="text" value={search} placeholder="What are you looking for..."
-            onChange={e => setSearch(e.target.value.toLowerCase())} />
+            onChange={e => setSearch(e.target.value)} />
 
             <div className="row sort">
                 <select value={'sort=-sold'} onChange={e => setSort(e.target.value)} >

@@ -1,6 +1,5 @@
 import React, {useContext, useState} from 'react'
 import {GlobalState} from '../../GlobalState'
-import Menu from './icon/menu.svg'
 import Close from './icon/close.svg'
 import Cart from './icon/cart.svg'
 import {Link} from 'react-router-dom'
@@ -15,9 +14,9 @@ function Header() {
 
     const logoutUser = async () =>{
         await axios.get('/user/logout')
-        
+
         localStorage.removeItem('firstLogin')
-        
+
         window.location.href = "/";
     }
 
@@ -46,14 +45,12 @@ function Header() {
 
     return (
         <header>
-            <div className="menu" onClick={() => setMenu(!menu)}>
-                <img src={Menu} alt="" width="30" />
-            </div>
+            <Link to="/"><h1>PROSEHAT</h1></Link>
 
             <div className="logo">
-                <h1>
-                    <Link to="/">{isAdmin ? 'Admin' : 'ProSehat'}</Link>
-                </h1>
+                <h5>
+                    <Link to="/">{isAdmin ? 'ADMIN PAGE' : 'USER PAGE'}</Link>
+                </h5>
             </div>
 
             <ul style={styleMenu}>
@@ -72,7 +69,7 @@ function Header() {
             </ul>
 
             {
-                isAdmin ? '' 
+                isAdmin ? ''
                 :<div className="cart-icon">
                     <span>{cart.length}</span>
                     <Link to="/cart">
@@ -80,7 +77,7 @@ function Header() {
                     </Link>
                 </div>
             }
-            
+
         </header>
     )
 }

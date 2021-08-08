@@ -27,7 +27,7 @@ function DetailProduct() {
             <div className="detail">
                 <img src={detailProduct.images} alt="" />
                 <div className="box-detail">
-                <h4 style={{fontSize: "25px"}}>{detailProduct.title}</h4>
+                <h3 style={{fontSize: "25px"}}>{detailProduct.title}</h3> <br />
                 <div className="row">
                     <h5 style={{fontSize: "14px"}}>Product ID: {detailProduct.product_id}</h5>
                     <h5 style={{fontSize: "14px"}}>Price: ${detailProduct.price}</h5>
