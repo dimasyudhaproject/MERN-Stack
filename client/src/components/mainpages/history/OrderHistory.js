@@ -31,15 +31,15 @@ function OrderHistory() {
 
     return (
         <div className="history-page">
-            <h2>History</h2>
+            <h4 style={{fontSize: "25px"}}>TRANSACTION HISTORY</h4>
 
-            <h4>You have {history.length} ordered</h4>
+            <h4>YOU ALREADY BOUGHT {history.length} PRODUCTS</h4>
 
             <table>
                 <thead>
                     <tr>
-                        <th>Payment ID</th>
-                        <th>Date of Purchased</th>
+                        <th>PAYMENT ID</th>
+                        <th>PURCHASE DATE</th>
                         <th></th>
                     </tr>
                 </thead>

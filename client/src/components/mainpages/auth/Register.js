@@ -48,7 +48,7 @@ function Register() {
                 <input type="email" name="email"
                 placeholder="Email Address" value={user.email} onChange={onChangeInput} />
 
-                <input type="number" name="phone"
+                <input type="text" name="phone"
                 placeholder="Phone Number" value={user.phone} onChange={onChangeInput} />
 
                 <div className="row">

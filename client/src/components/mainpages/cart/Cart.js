@@ -52,7 +52,7 @@ function Cart() {
     }
 
     const removeProduct = id =>{
-        if(window.confirm("Do you want to delete this product?")){
+        if(window.confirm("ARE YOU SURE DELETING THIS PRODUCT?")){
             cart.forEach((item, index) => {
                 if(item._id === id){
                     cart.splice(index, 1)
@@ -78,14 +78,14 @@ function Cart() {
 
 
     if(cart.length === 0) 
-        return <h3 style={{textAlign: "center", fontSize: "3rem"}}>CART IS EMPTY</h3> 
+        return <h4 style={{fontSize: "25px"}}>CART IS EMPTY</h4> 
 
     return (
         <div>
             {
                 cart.map(product => (
                     <div className="detail cart" key={product._id}>
-                        <img src={product.images.url} alt="" />
+                        <img src={product.images} alt="" />
 
                         <div className="box-detail">
                             <h2>{product.title}</h2>

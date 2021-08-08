@@ -22,7 +22,7 @@ function Filters() {
                     <option value=''>All Products</option>
                     {
                         categories.map(category => (
-                            <option value={"category=" + category._id} key={category._id}>
+                            <option value={"category=" + category.name} key={category.name}>
                                 {category.name}
                             </option>
                         ))
@@ -34,7 +34,7 @@ function Filters() {
             onChange={e => setSearch(e.target.value.toLowerCase())} />
 
             <div className="row sort">
-                <select value={sort} onChange={e => setSort(e.target.value)} >
+                <select value={'sort=-sold'} onChange={e => setSort(e.target.value)} >
                     <option value='sort=-sold'>Popular</option>
                     <option value=''>Newest</option>
                     <option value='sort=-price'>Price: Hightest</option>

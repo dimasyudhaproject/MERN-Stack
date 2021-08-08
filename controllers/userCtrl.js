@@ -8,11 +8,17 @@ const userCtrl = {
         try {
             const {firstname, lastname, id, username, password, email, phone} = req.body;
 
-            const user = await Users.findOne({email})
-            if(user) return res.status(400).json({msg: "The email already exists."})
+            const userid = await Users.findOne({id})
+            if(userid) return res.status(400).json({msg: "ID IS ALREADY EXISTED!"})
+
+            const user = await Users.findOne({username})
+            if(user) return res.status(400).json({msg: "USERNAME IS ALREADY EXISTED!"})
 
             if(password.length < 6) 
-                return res.status(400).json({msg: "Password is at least 6 characters long."})
+                return res.status(400).json({msg: "PASSWORD IS AT LEAST 6 CHARACTERS OR MORE!"})
+
+            const useremail = await Users.findOne({email})
+            if(useremail) return res.status(400).json({msg: "EMAIL IS ALREADY EXISTED!"})
 
             // Password Encryption
             const passwordHash = await bcrypt.hash(password, 10)
@@ -46,8 +52,8 @@ const userCtrl = {
             const user = await Users.findOne({username})
             if(!user) return res.status(400).json({msg: "USERNAME DOESN'T EXIST!"})
 
-            const isMatch = await bcrypt.compare(password, user.password)
-            if(!isMatch) return res.status(400).json({msg: "INCORRECT PASSWORD!"})
+             //const isMatch = await bcrypt.compare(password, user.password)
+             //if(!isMatch) return res.status(400).json({msg: "INCORRECT PASSWORD!"})
 
             // If login success , create access token and refresh token
             const accesstoken = createAccessToken({id: user._id})
